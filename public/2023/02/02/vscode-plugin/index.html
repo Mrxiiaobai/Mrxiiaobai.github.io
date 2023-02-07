@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<meta  lang="zh-CN" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#fff" id="theme-color">
+  <link rel="icon" href="https://img.songhn.com/img/Y67gdd.png">
+  <title>Savior的博客</title>
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+    var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      }
+    };
+    setDarkmode();
+  </script>
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  </script>
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_vpj3dq9ceqa.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  
+  <link rel="preload" href="//cdn.jsdelivr.net/npm/fslightbox@3.1.0/index.min.js" as="script">
+  
+  
+  <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_vpj3dq9ceqa.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <div class="wrapper">
+    
+    <nav class="navbar">
+  <div class="navbar-logo">
+    <span class="navbar-logo-main">
+      
+      <img class="navbar-logo-img" src="https://img.songhn.com/img/Y67gdd.png">
+      
+      <span class="navbar-logo-dsc">Savior的博客</span>
+    </span>
+  </div>
+  <div class="navbar-menu">
+    
+    <a href="/" class="navbar-menu-item">首页 </a>
+    
+    <a href="/archives" class="navbar-menu-item">归档 </a>
+    
+    <a href="/tags" class="navbar-menu-item">标签 </a>
+    
+    <a href="/categories" class="navbar-menu-item">分类 </a>
+    
+    <a class="navbar-menu-item darknavbar" id="dark"><i class="iconfont icon-weather"></i></a>
+  </div>
+</nav>
+    
+    <div class="section-wrap">
+      <div class="container">
+        <div class="columns">
+          <main class="main-column">
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      vscode插件
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2023-02-02T06:55:27.514Z" style="display: flex; align-items: center;">
+      <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+      <span>2023-02-02</span>
+    </time>
+    
+    <span class="dot"></span>
+    
+    <a href="/categories/vscode/" class="post-meta-link">vscode</a>
+    
+    
+    
+    <span class="dot"></span>
+    <span>169 字</span>
+    
+  </div>
+  
+  <div class="post-meta post-show-meta" style="margin-top: -10px;">
+    <div style="display: flex; align-items: center;">
+      <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
+      
+      
+        <a href="/tags/vscode插件/" class="post-meta-link">vscode插件</a>
+      
+    </div>
+  </div>
+  
+  </header>
+  <div id="section" class="post-content">
+    <h6 id="1、Chinese-转中文"><a href="#1、Chinese-转中文" class="headerlink" title="1、Chinese 转中文"></a>1、Chinese 转中文</h6><h6 id="2、Auto-Rename-Tag-修改时自动同步左右两侧标签"><a href="#2、Auto-Rename-Tag-修改时自动同步左右两侧标签" class="headerlink" title="2、Auto Rename Tag 修改时自动同步左右两侧标签"></a>2、Auto Rename Tag 修改时自动同步左右两侧标签</h6><h6 id="3、Auto-Import-自动引入"><a href="#3、Auto-Import-自动引入" class="headerlink" title="3、Auto Import 自动引入"></a>3、Auto Import 自动引入</h6><h6 id="4、Colorful-Comments-有颜色的注释"><a href="#4、Colorful-Comments-有颜色的注释" class="headerlink" title="4、Colorful Comments 有颜色的注释"></a>4、Colorful Comments 有颜色的注释</h6><h6 id="5、Css-Peek-css选择-没怎么使用"><a href="#5、Css-Peek-css选择-没怎么使用" class="headerlink" title="5、Css Peek css选择 没怎么使用"></a>5、Css Peek css选择 没怎么使用</h6><h6 id="6、ES7-React-Redux-React-Native-snippets-代码提示"><a href="#6、ES7-React-Redux-React-Native-snippets-代码提示" class="headerlink" title="6、ES7+ React/Redux/React-Native snippets 代码提示"></a>6、ES7+ React/Redux/React-Native snippets 代码提示</h6><h6 id="7、Eslint"><a href="#7、Eslint" class="headerlink" title="7、Eslint"></a>7、Eslint</h6><h6 id="8、GitLens-git提交记录"><a href="#8、GitLens-git提交记录" class="headerlink" title="8、GitLens git提交记录"></a>8、GitLens git提交记录</h6><h6 id="9、Image-preview-引入的图片预览"><a href="#9、Image-preview-引入的图片预览" class="headerlink" title="9、Image preview 引入的图片预览"></a>9、Image preview 引入的图片预览</h6><h6 id="10、JSON-To-Ts-command-shift-p-输入插件名，通过复制json文件生成ts"><a href="#10、JSON-To-Ts-command-shift-p-输入插件名，通过复制json文件生成ts" class="headerlink" title="10、JSON To Ts command + shift + p 输入插件名，通过复制json文件生成ts"></a>10、JSON To Ts command + shift + p 输入插件名，通过复制json文件生成ts</h6><h6 id="11、Paste-JSON-as-Code-同上"><a href="#11、Paste-JSON-as-Code-同上" class="headerlink" title="11、Paste JSON as Code 同上"></a>11、Paste JSON as Code 同上</h6><h6 id="12、Live-serve-启动服务"><a href="#12、Live-serve-启动服务" class="headerlink" title="12、Live serve 启动服务"></a>12、Live serve 启动服务</h6><h6 id="13、Path-Intellisense-路径提醒"><a href="#13、Path-Intellisense-路径提醒" class="headerlink" title="13、Path Intellisense 路径提醒"></a>13、Path Intellisense 路径提醒</h6><h6 id="14、Regex-Perviewer-正则提醒"><a href="#14、Regex-Perviewer-正则提醒" class="headerlink" title="14、Regex Perviewer 正则提醒"></a>14、Regex Perviewer 正则提醒</h6><h6 id="15、Javascript-and-Typescript-Nightly-代码提示"><a href="#15、Javascript-and-Typescript-Nightly-代码提示" class="headerlink" title="15、Javascript and Typescript Nightly 代码提示"></a>15、Javascript and Typescript Nightly 代码提示</h6><h6 id="16、ToDo-Tree-代码中的注释-ToDo-会单独提醒"><a href="#16、ToDo-Tree-代码中的注释-ToDo-会单独提醒" class="headerlink" title="16、ToDo Tree 代码中的注释 //ToDo: 会单独提醒"></a>16、ToDo Tree 代码中的注释 //ToDo: 会单独提醒</h6><h6 id="17、Turbo-Console-Log-选中-ctrl-shift-l-生成console-log"><a href="#17、Turbo-Console-Log-选中-ctrl-shift-l-生成console-log" class="headerlink" title="17、Turbo Console Log 选中 ctrl + shift + l 生成console.log"></a>17、Turbo Console Log 选中 ctrl + shift + l 生成console.log</h6><h6 id="18、Vetur、Vue3-snippets-代码提示"><a href="#18、Vetur、Vue3-snippets-代码提示" class="headerlink" title="18、Vetur、Vue3 snippets 代码提示"></a>18、Vetur、Vue3 snippets 代码提示</h6>
+  </div>
+  <div>
+  
+  <div class="post-note note-warning copyright" style="margin-top: 42px">
+    <p><span style="font-weight: bold;">作者：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://example.com/about">Savior</a></p>
+    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://example.com/2023/02/02/vscode-plugin/">http://example.com/2023/02/02/vscode-plugin/</a></p>
+    <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+  </div>
+  
+  </div>
+</article>
+<div class="nav">
+  
+  <div class="nav-item-prev">
+    <a href="/2023/02/02/vscode-autosave/" class="nav-link">
+      <i class="iconfont icon-left nav-prev-icon"></i>
+      <div>
+        <div class="nav-label">上一篇</div>
+        
+        <div class="nav-title">vscode保存格式化设置 </div>
+        
+      </div>
+    </a>
+  </div>
+  
+  
+  <div class="nav-item-next">
+    <a href="/2023/02/02/react-cors/" class="nav-link">
+      <div>
+        <div class="nav-label">下一篇</div>
+        
+        <div class="nav-title">谷歌无跨域模式 </div>
+        
+      </div>
+      <i class="iconfont icon-right nav-next-icon"></i>
+    </a>
+  </div>
+  
+</div>
+
+<div class="card card-content toc-card" id="mobiletoc">
+  <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#1%E3%80%81Chinese-%E8%BD%AC%E4%B8%AD%E6%96%87"><span class="toc-text">1、Chinese 转中文</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2%E3%80%81Auto-Rename-Tag-%E4%BF%AE%E6%94%B9%E6%97%B6%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E5%B7%A6%E5%8F%B3%E4%B8%A4%E4%BE%A7%E6%A0%87%E7%AD%BE"><span class="toc-text">2、Auto Rename Tag 修改时自动同步左右两侧标签</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3%E3%80%81Auto-Import-%E8%87%AA%E5%8A%A8%E5%BC%95%E5%85%A5"><span class="toc-text">3、Auto Import 自动引入</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4%E3%80%81Colorful-Comments-%E6%9C%89%E9%A2%9C%E8%89%B2%E7%9A%84%E6%B3%A8%E9%87%8A"><span class="toc-text">4、Colorful Comments 有颜色的注释</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5%E3%80%81Css-Peek-css%E9%80%89%E6%8B%A9-%E6%B2%A1%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8"><span class="toc-text">5、Css Peek css选择 没怎么使用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6%E3%80%81ES7-React-Redux-React-Native-snippets-%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA"><span class="toc-text">6、ES7+ React&#x2F;Redux&#x2F;React-Native snippets 代码提示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7%E3%80%81Eslint"><span class="toc-text">7、Eslint</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8%E3%80%81GitLens-git%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95"><span class="toc-text">8、GitLens git提交记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#9%E3%80%81Image-preview-%E5%BC%95%E5%85%A5%E7%9A%84%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88"><span class="toc-text">9、Image preview 引入的图片预览</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#10%E3%80%81JSON-To-Ts-command-shift-p-%E8%BE%93%E5%85%A5%E6%8F%92%E4%BB%B6%E5%90%8D%EF%BC%8C%E9%80%9A%E8%BF%87%E5%A4%8D%E5%88%B6json%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90ts"><span class="toc-text">10、JSON To Ts command + shift + p 输入插件名，通过复制json文件生成ts</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#11%E3%80%81Paste-JSON-as-Code-%E5%90%8C%E4%B8%8A"><span class="toc-text">11、Paste JSON as Code 同上</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#12%E3%80%81Live-serve-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-text">12、Live serve 启动服务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#13%E3%80%81Path-Intellisense-%E8%B7%AF%E5%BE%84%E6%8F%90%E9%86%92"><span class="toc-text">13、Path Intellisense 路径提醒</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#14%E3%80%81Regex-Perviewer-%E6%AD%A3%E5%88%99%E6%8F%90%E9%86%92"><span class="toc-text">14、Regex Perviewer 正则提醒</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#15%E3%80%81Javascript-and-Typescript-Nightly-%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA"><span class="toc-text">15、Javascript and Typescript Nightly 代码提示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#16%E3%80%81ToDo-Tree-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E6%B3%A8%E9%87%8A-ToDo-%E4%BC%9A%E5%8D%95%E7%8B%AC%E6%8F%90%E9%86%92"><span class="toc-text">16、ToDo Tree 代码中的注释 &#x2F;&#x2F;ToDo: 会单独提醒</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#17%E3%80%81Turbo-Console-Log-%E9%80%89%E4%B8%AD-ctrl-shift-l-%E7%94%9F%E6%88%90console-log"><span class="toc-text">17、Turbo Console Log 选中 ctrl + shift + l 生成console.log</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#18%E3%80%81Vetur%E3%80%81Vue3-snippets-%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA"><span class="toc-text">18、Vetur、Vue3 snippets 代码提示</span></a></li></ol>
+</div></main>
+          <aside class="left-column">
+            
+            <div class="card card-author">
+              
+<img src="https://img.songhn.com/img/Y67gdd.png" class="author-img">
+
+<p class="author-name">Savior</p>
+<p class="author-description">made by Savior</p>
+<div class="author-message">
+  <a class="author-posts-count" href="/archives">
+    <span>12</span>
+    <span>文章</span>
+  </a>
+  <a class="author-categories-count" href="/categories">
+    <span>6</span>
+    <span>分类</span>
+  </a>
+  <a class="author-tags-count" href="/tags">
+    <span>12</span>
+    <span>标签</span>
+  </a>
+</div>
+
+            </div>
+            
+            <div class="sticky-tablet">
+  
+  
+  <article class="display-when-two-columns spacer">
+    <div class="card card-content toc-card">
+      <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#1%E3%80%81Chinese-%E8%BD%AC%E4%B8%AD%E6%96%87"><span class="toc-text">1、Chinese 转中文</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2%E3%80%81Auto-Rename-Tag-%E4%BF%AE%E6%94%B9%E6%97%B6%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E5%B7%A6%E5%8F%B3%E4%B8%A4%E4%BE%A7%E6%A0%87%E7%AD%BE"><span class="toc-text">2、Auto Rename Tag 修改时自动同步左右两侧标签</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3%E3%80%81Auto-Import-%E8%87%AA%E5%8A%A8%E5%BC%95%E5%85%A5"><span class="toc-text">3、Auto Import 自动引入</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4%E3%80%81Colorful-Comments-%E6%9C%89%E9%A2%9C%E8%89%B2%E7%9A%84%E6%B3%A8%E9%87%8A"><span class="toc-text">4、Colorful Comments 有颜色的注释</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5%E3%80%81Css-Peek-css%E9%80%89%E6%8B%A9-%E6%B2%A1%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8"><span class="toc-text">5、Css Peek css选择 没怎么使用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6%E3%80%81ES7-React-Redux-React-Native-snippets-%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA"><span class="toc-text">6、ES7+ React&#x2F;Redux&#x2F;React-Native snippets 代码提示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7%E3%80%81Eslint"><span class="toc-text">7、Eslint</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8%E3%80%81GitLens-git%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95"><span class="toc-text">8、GitLens git提交记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#9%E3%80%81Image-preview-%E5%BC%95%E5%85%A5%E7%9A%84%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88"><span class="toc-text">9、Image preview 引入的图片预览</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#10%E3%80%81JSON-To-Ts-command-shift-p-%E8%BE%93%E5%85%A5%E6%8F%92%E4%BB%B6%E5%90%8D%EF%BC%8C%E9%80%9A%E8%BF%87%E5%A4%8D%E5%88%B6json%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90ts"><span class="toc-text">10、JSON To Ts command + shift + p 输入插件名，通过复制json文件生成ts</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#11%E3%80%81Paste-JSON-as-Code-%E5%90%8C%E4%B8%8A"><span class="toc-text">11、Paste JSON as Code 同上</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#12%E3%80%81Live-serve-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-text">12、Live serve 启动服务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#13%E3%80%81Path-Intellisense-%E8%B7%AF%E5%BE%84%E6%8F%90%E9%86%92"><span class="toc-text">13、Path Intellisense 路径提醒</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#14%E3%80%81Regex-Perviewer-%E6%AD%A3%E5%88%99%E6%8F%90%E9%86%92"><span class="toc-text">14、Regex Perviewer 正则提醒</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#15%E3%80%81Javascript-and-Typescript-Nightly-%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA"><span class="toc-text">15、Javascript and Typescript Nightly 代码提示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#16%E3%80%81ToDo-Tree-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E6%B3%A8%E9%87%8A-ToDo-%E4%BC%9A%E5%8D%95%E7%8B%AC%E6%8F%90%E9%86%92"><span class="toc-text">16、ToDo Tree 代码中的注释 &#x2F;&#x2F;ToDo: 会单独提醒</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#17%E3%80%81Turbo-Console-Log-%E9%80%89%E4%B8%AD-ctrl-shift-l-%E7%94%9F%E6%88%90console-log"><span class="toc-text">17、Turbo Console Log 选中 ctrl + shift + l 生成console.log</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#18%E3%80%81Vetur%E3%80%81Vue3-snippets-%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA"><span class="toc-text">18、Vetur、Vue3 snippets 代码提示</span></a></li></ol>
+    </div>
+  </article>
+  
+  
+  <article class="card card-content">
+    <div class="categories-card">
+  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
+  <div class="categories-list">
+    
+      <a href="/categories/linux">
+        <div class="categories-list-item">
+          linux
+          <span class="categories-list-item-badge">3</span>
+        </div>
+      </a>
+    
+      <a href="/categories/python">
+        <div class="categories-list-item">
+          python
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/react">
+        <div class="categories-list-item">
+          react
+          <span class="categories-list-item-badge">3</span>
+        </div>
+      </a>
+    
+      <a href="/categories/vscode">
+        <div class="categories-list-item">
+          vscode
+          <span class="categories-list-item-badge">2</span>
+        </div>
+      </a>
+    
+      <a href="/categories/vue">
+        <div class="categories-list-item">
+          vue
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/websocket">
+        <div class="categories-list-item">
+          websocket
+          <span class="categories-list-item-badge">2</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content">
+    <div class="tags-card">
+  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
+  <div class="tags-list">
+    
+    <a href="\tags\websocket群聊" title="websocket群聊"><div class="tags-list-item">websocket群聊</div></a>
+    
+    <a href="\tags\websocket聊天室" title="websocket聊天室"><div class="tags-list-item">websocket聊天室</div></a>
+    
+    <a href="\tags\vue组件的v-model" title="vue组件的v-model"><div class="tags-list-item">vue组件的v-model</div></a>
+    
+    <a href="\tags\vscode保存格式化设置" title="vscode保存格式化设置"><div class="tags-list-item">vscode保存格式化设置</div></a>
+    
+    <a href="\tags\vscode插件" title="vscode插件"><div class="tags-list-item">vscode插件</div></a>
+    
+    <a href="\tags\基于react-dnd实现拖拽、排序" title="基于react-dnd实现拖拽、排序"><div class="tags-list-item">基于react-dnd实现拖拽、排序</div></a>
+    
+    <a href="\tags\react配置装饰器" title="react配置装饰器"><div class="tags-list-item">react配置装饰器</div></a>
+    
+    <a href="\tags\linux服务器之间上传文件" title="linux服务器之间上传文件"><div class="tags-list-item">linux服务器之间上传文件</div></a>
+    
+    <a href="\tags\谷歌无跨域模式" title="谷歌无跨域模式"><div class="tags-list-item">谷歌无跨域模式</div></a>
+    
+    <a href="\tags\python生成apk" title="python生成apk"><div class="tags-list-item">python生成apk</div></a>
+    
+    <a href="\tags\linux设置定时任务" title="linux设置定时任务"><div class="tags-list-item">linux设置定时任务</div></a>
+    
+    <a href="\tags\linux设置软链接" title="linux设置软链接"><div class="tags-list-item">linux设置软链接</div></a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+          <aside class="right-column">
+            <div class="sticky-widescreen">
+  
+  
+  <article class="card card-content toc-card">
+    <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#1%E3%80%81Chinese-%E8%BD%AC%E4%B8%AD%E6%96%87"><span class="toc-text">1、Chinese 转中文</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2%E3%80%81Auto-Rename-Tag-%E4%BF%AE%E6%94%B9%E6%97%B6%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%E5%B7%A6%E5%8F%B3%E4%B8%A4%E4%BE%A7%E6%A0%87%E7%AD%BE"><span class="toc-text">2、Auto Rename Tag 修改时自动同步左右两侧标签</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3%E3%80%81Auto-Import-%E8%87%AA%E5%8A%A8%E5%BC%95%E5%85%A5"><span class="toc-text">3、Auto Import 自动引入</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4%E3%80%81Colorful-Comments-%E6%9C%89%E9%A2%9C%E8%89%B2%E7%9A%84%E6%B3%A8%E9%87%8A"><span class="toc-text">4、Colorful Comments 有颜色的注释</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5%E3%80%81Css-Peek-css%E9%80%89%E6%8B%A9-%E6%B2%A1%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8"><span class="toc-text">5、Css Peek css选择 没怎么使用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6%E3%80%81ES7-React-Redux-React-Native-snippets-%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA"><span class="toc-text">6、ES7+ React&#x2F;Redux&#x2F;React-Native snippets 代码提示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7%E3%80%81Eslint"><span class="toc-text">7、Eslint</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8%E3%80%81GitLens-git%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95"><span class="toc-text">8、GitLens git提交记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#9%E3%80%81Image-preview-%E5%BC%95%E5%85%A5%E7%9A%84%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88"><span class="toc-text">9、Image preview 引入的图片预览</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#10%E3%80%81JSON-To-Ts-command-shift-p-%E8%BE%93%E5%85%A5%E6%8F%92%E4%BB%B6%E5%90%8D%EF%BC%8C%E9%80%9A%E8%BF%87%E5%A4%8D%E5%88%B6json%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90ts"><span class="toc-text">10、JSON To Ts command + shift + p 输入插件名，通过复制json文件生成ts</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#11%E3%80%81Paste-JSON-as-Code-%E5%90%8C%E4%B8%8A"><span class="toc-text">11、Paste JSON as Code 同上</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#12%E3%80%81Live-serve-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-text">12、Live serve 启动服务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#13%E3%80%81Path-Intellisense-%E8%B7%AF%E5%BE%84%E6%8F%90%E9%86%92"><span class="toc-text">13、Path Intellisense 路径提醒</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#14%E3%80%81Regex-Perviewer-%E6%AD%A3%E5%88%99%E6%8F%90%E9%86%92"><span class="toc-text">14、Regex Perviewer 正则提醒</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#15%E3%80%81Javascript-and-Typescript-Nightly-%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA"><span class="toc-text">15、Javascript and Typescript Nightly 代码提示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#16%E3%80%81ToDo-Tree-%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E6%B3%A8%E9%87%8A-ToDo-%E4%BC%9A%E5%8D%95%E7%8B%AC%E6%8F%90%E9%86%92"><span class="toc-text">16、ToDo Tree 代码中的注释 &#x2F;&#x2F;ToDo: 会单独提醒</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#17%E3%80%81Turbo-Console-Log-%E9%80%89%E4%B8%AD-ctrl-shift-l-%E7%94%9F%E6%88%90console-log"><span class="toc-text">17、Turbo Console Log 选中 ctrl + shift + l 生成console.log</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#18%E3%80%81Vetur%E3%80%81Vue3-snippets-%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA"><span class="toc-text">18、Vetur、Vue3 snippets 代码提示</span></a></li></ol>
+  </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>最近文章</div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-02-02</div>
+        <a href="/2023/02/02/react-dnd/"><div class="recent-posts-item-content">基于react-dnd实现拖拽、排序</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-02-02</div>
+        <a href="/2023/02/02/websocket-chatroom/"><div class="recent-posts-item-content">websocket聊天室</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-02-02</div>
+        <a href="/2023/02/02/websocket-single/"><div class="recent-posts-item-content">websocket群聊</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-02-02</div>
+        <a href="/2023/02/02/vue-vmodel/"><div class="recent-posts-item-content">vue组件的v-model</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>Copyright ©
+          
+          2020 -
+          
+          2023
+        </span>
+        <a href="/" class="footer-link">Savior的博客 </a>
+      </div>
+    </div>
+
+    
+    <div class="footer-dsc">
+      
+      
+      Powered by
+      <a href="https://hexo.io/" class="footer-link" target="_blank" rel="nofollow noopener noreferrer">&nbsp;Hexo </a>
+      
+      
+      <span>&nbsp;|&nbsp;</span>
+      
+      
+      
+      Theme -
+      <a href="https://github.com/theme-kaze" class="footer-link" target="_blank"
+        rel="nofollow noopener noreferrer">&nbsp;Kaze</a>
+      
+    </div>
+    
+    
+    
+    
+</footer>
+  <a role="button" id="scrollbutton" class="basebutton" >
+  <i class="iconfont icon-arrowleft button-icon"></i>
+</a>
+<a role="button" id="menubutton" class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a role="button" id="popbutton" class="basebutton">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a role="button" id="darkbutton" class="basebutton darkwidget">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+
+  
+  
+  
+  <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img');
+    var i;
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a');
+      wrapper.setAttribute('data-fslightbox', 'gallery');
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'));
+      wrapper.setAttribute('style', 'width: 100%; display: flex; justify-content: center;');
+      img[i].parentElement.insertBefore(wrapper, img[i]);
+      wrapper.appendChild(img[i]);
+    }
+    refreshFsLightbox();
+  }
+</script>
+<script>loadScript("//cdn.jsdelivr.net/npm/fslightbox@3.1.0/index.min.js", addImgLayout)</script>
+  
+  
+  
+<script src="/js/main.js"></script>
+
+  
+  
+  <script>
+    var addLazyload = function () {
+      var observer = lozad('.lozad', {
+        load: function (el) {
+          el.srcset = el.getAttribute('data-src');
+        },
+        loaded: function (el) {
+          el.classList.add('loaded');
+        }
+      });
+      observer.observe();
+    }
+  </script>
+  <script>loadScript("/js/lib/lozad.min.js", addLazyload)</script>
+  
+  
+</body>
+
+</html>
