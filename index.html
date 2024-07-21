@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Savior的博客</title><meta name="author" content="savior"><meta name="copyright" content="savior"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基于react-dnd实现拖拽排序、react配置装饰器、linux设置定时任务">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Savior的博客">
+<meta property="og:url" content="https://mrxiiaobai.github.io/index.html">
+<meta property="og:site_name" content="Savior的博客">
+<meta property="og:description" content="基于react-dnd实现拖拽排序、react配置装饰器、linux设置定时任务">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="savior">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://mrxiiaobai.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Savior的博客',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-21 21:16:54'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Savior的博客"><span class="site-name">Savior的博客</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Savior的博客</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/21/suibi/sanjianke3/" title="三剑客 第三章">三剑客 第三章</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-21T12:12:29.303Z" title="发表于 2024-07-21 20:12:29">2024-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/suibi/">suibi</a></span></div><div class="content">第三章“不是你是谁，这里只有你在”，正是先前着黑色劲装之人。
+有人附和道：“我们方才在路上，听到打斗声，才匆匆赶来，只看到你二人在此。”
+“不是你，是何人？庄主脖子上的伤口，便是证据，大家来看，庄主脖子上的伤口很细，正常伤口，都会有大量鲜血流出，失血过多而死，但这处伤口周围带有水雾，很明显是被剑气所杀。江湖中我知道唯有一种剑法，可以造成这种结果，便是他陈老九的水月镜花剑法。”
+众人听罢，也觉得很有道理，纷纷指责于我，誓要与我分个你死我活。
+若非我是当事人，听了这番言论，我也会觉得我是这个杀人凶手。当然我心知，即便我是这个杀人凶手，他们之中也没有人会因为这个死去的庄主找我报仇，无非是有人仗着人多，想要合力杀死那个高高在上的我。
+若是往常，我定会一剑杀了那个污蔑我的人，杀了也便杀了，无论往后是有人报仇而来，还是切磋而来，倘若我死，死也就死了，我都认。
+但是今日，若是杀了，便坐实了这个凶手的事实，我并不想替别人背这口黑锅。我也不可能杀了所有人，我不是滥杀之人，我有自己的原则，他们有的无辜，无辜之人我不杀。
+“如果是我杀的，那么你们觉得自己现在还会活着吗？”，我问道，我有这个自信。
+众人不语， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/21/websocket/websocket-single/" title="websocket群聊">websocket群聊</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-21T06:33:22.763Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/websocket/">websocket</a></span></div><div class="content">socket.io官网地址：https://socket.io/docs/v4/
+1、服务器端1.1、安装socket.io v4.x版本 至少需要 Nodev10
+1.2、下载1npm install socket.io
+
+1.3、使用1.3.1、启动端口这里使用的是express
+1234567891011var express = require(&#x27;express&#x27;);//引用expressvar app = express();//创建express实例var server = app.listen(9999, function () &#123;//应用启动端口为9999  var host = server.address().address;  var port = server.address().port;  console.log(&quot;访问地址为&quot;, host, port)&#125;);const socketIo = require(&#x27;socket.io&#x27;)(server, &#123; cors: tr ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/21/vscode/vscode-autosave/" title="vscode保存格式化设置">vscode保存格式化设置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-21T06:33:22.762Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/vscode/">vscode</a></span></div><div class="content">123456789101112131415161718&#123;    &quot;explorer.confirmDelete&quot;: false,    &quot;[javascriptreact]&quot;: &#123;        &quot;editor.defaultFormatter&quot;: &quot;dbaeumer.vscode-eslint&quot;    &#125;,    &quot;git.suggestSmartCommit&quot;: false,    &quot;diffEditor.ignoreTrimWhitespace&quot;: false,    &quot;git.autofetch&quot;: true,    &quot;editor.accessibilitySupport&quot;: &quot;off&quot;,    &quot;git.ignoreRebaseWarning&quot;: true,    &quot;terminal.integrated.tabs.location&qu ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/21/vscode/vscode-plugin/" title="vscode插件">vscode插件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-21T06:33:22.762Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/vscode/">vscode</a></span></div><div class="content">1、Chinese 转中文2、Auto Rename Tag 修改时自动同步左右两侧标签3、Auto Import 自动引入4、Colorful Comments 有颜色的注释5、Css Peek css选择 没怎么使用6、ES7+ React/Redux/React-Native snippets 代码提示7、Eslint8、GitLens git提交记录9、Image preview 引入的图片预览10、JSON To Ts command + shift + p 输入插件名，通过复制json文件生成ts11、Paste JSON as Code 同上12、Live serve 启动服务13、Path Intellisense 路径提醒14、Regex Perviewer 正则提醒15、Javascript and Typescript Nightly 代码提示16、ToDo Tree 代码中的注释 //ToDo: 会单独提醒17、Turbo Console Log 选中 ctrl + shift + l 生成console.log18、Vetur、Vue3 snippets 代码 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/21/websocket/websocket-chatroom/" title="websocket聊天室">websocket聊天室</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-21T06:33:22.762Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/websocket/">websocket</a></span></div><div class="content">socket.io官网地址：https://socket.io/docs/v4/
+1、服务器端1.1、安装socket.io v4.x版本 至少需要 Nodev10
+1.2、下载1npm install socket.io
+
+1.3、使用1.3.1、启动端口这里使用的是express
+1234567891011var express = require(&#x27;express&#x27;);//引用expressvar app = express();//创建express实例var server = app.listen(9999, function () &#123;//应用启动端口为9999  var host = server.address().address;  var port = server.address().port;  console.log(&quot;访问地址为&quot;, host, port)&#125;);const socketIo = require(&#x27;socket.io&#x27;)(server, &#123; cors: tr ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/21/vue/vue-vmodel/" title="vue组件的v-model">vue组件的v-model</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-21T06:33:22.762Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/vue/">vue</a></span></div><div class="content">12345678910111213141516171819202122232425262728293031323334353637383940// Child&lt;template&gt;&lt;/template&gt;&lt;script&gt;export default &#123;    props: &#123;         msg: &#123; type: string &#125;       &#125;，    model: &#123;        prop: &#x27;msg&#x27;,        event: &#x27;input&#x27;    &#125;,    data: &#123;        value: null        &#125;,    computed: &#123;        defaultValue:&#123;            set(val)&#123;                this.val = value                this.$emit(&#x27;inpu ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/21/suibi/sanjianke2/" title="三剑客 第二章">三剑客 第二章</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-21T06:33:22.762Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/suibi/">suibi</a></span></div><div class="content">第二章 陷害“咻”的一声，一枚令箭刺穿墙壁的声音，我瞬间从睡梦中清醒过来，正值辰时一刻。
+而我不由得暗自骂道，大早上扰人清梦，属实不是个人。
+我常常和衣而睡，就是未来应付灾难来临前，还需要急急忙忙穿衣服的尴尬场景，我自是不喜，我自认不优雅，但是也不想做一个不修边幅的剑客。
+拔下令箭，上面插着一张纸条，不禁吐槽，为什么总是出现这种过时的戏码。
+纸条上写着，”午时三刻，云隐山庄，黄泉剑出”。
+云隐山庄，是一个古老的山庄，这里远离尘嚣，算是一处避世之所，一个大多数普通人不知晓的秘密之地。
+至于黄泉剑，我当然不是想夺得这把剑，我有剑，而且我并不打算抛弃我的剑，对于一名剑客，一把常年伴身，温养的剑，对敌时才能做到得心应手，剑如臂使。黄泉剑，亦有主人，他的主人姓龙。
+江湖之人都知道我喜欢与习剑之人切磋，在我看来，与习剑之人切磋，才能看清我在剑道上的未来，每个人的剑道不同，领悟自然不同，而我所做的，就是从中获得新的领悟，使我获得一招半式，成为更强的剑。
+黄泉剑主，虽然同为三剑客，排名在我之后，但是并未与其有过切磋，江湖中人，不可能每个人都对决一番，看的还是过往的战绩，正如李飘雅的战绩，我自认暂时不如 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/21/linux/linux-task/" title="linux设置定时任务">linux设置定时任务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-21T06:33:22.761Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">1、linux自带crontab、没有需要安装crontab -l 查看定时任务crontab -e 编辑定时任务每五分钟执行  */5 * * * *
+每小时执行     0 * * * *
+每天执行       0 0 * * *
+每周执行       0 0 * * 0
+每月执行       0 0 1 * *
+每年执行       0 0 1 1 *
+2、写shell脚本 例如 hello.sh编写第一个shell文件，#!/bin/bash 是必须要写的，表示要是/bin/bash这个执行脚本的命令执行接下来写的脚本, echo “hello world !!”表示想前端打印一句话，具体看各自需求。
+12#!/bin/bashecho &quot;hello world&quot;
+
+这里假如echo之类的命令不是全局，需要设置软链接,如果后面命令为某文件内命令，需设置具体路径例如
+1dotnet /data/Rat
+
+
+3、修改hello.sh权限1chmod 777 ./hello.sh
+4、试执行 ./hello.sh,命令窗口会打印出hello world1./hel ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/21/python/python-apk/" title="python生成apk">python生成apk</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-21T06:33:22.761Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">第一种方式：beewarebeeware 官网 ：https://docs.beeware.org/en/latest/tutorial/tutorial-0.html
+1、前提：前提需要下载python32、可能遇到的问题：1、只下载了platform-tools的情况下，需要单独下载新版 android sdk,由于android sdk官网已经不支持单独下载了，所以可以下载sdk manager的zip包2、briefcase build android 过程中会提示无license可以通过进入sdk manager执行./sdkmanager –license 生成licens文件夹，复制到platform-tools/tools 内
+3、可能提示无ndk等问题，需要下载ndk第二种方式：kivy</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/21/react/react-cors/" title="谷歌无跨域模式">谷歌无跨域模式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-21T06:33:22.761Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/react/">react</a></span></div><div class="content">1、新建CORS文件夹2、命令窗口输入1open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/admin/Desktop/CORS
+
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">savior</div><div class="author-info__description">基于react-dnd实现拖拽排序、react配置装饰器、linux设置定时任务</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/21/suibi/sanjianke3/" title="三剑客 第三章">三剑客 第三章</a><time datetime="2024-07-21T12:12:29.303Z" title="发表于 2024-07-21 20:12:29">2024-07-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/21/websocket/websocket-single/" title="websocket群聊">websocket群聊</a><time datetime="2024-07-21T06:33:22.763Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/21/vscode/vscode-autosave/" title="vscode保存格式化设置">vscode保存格式化设置</a><time datetime="2024-07-21T06:33:22.762Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/21/vscode/vscode-plugin/" title="vscode插件">vscode插件</a><time datetime="2024-07-21T06:33:22.762Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/21/websocket/websocket-chatroom/" title="websocket聊天室">websocket聊天室</a><time datetime="2024-07-21T06:33:22.762Z" title="发表于 2024-07-21 14:33:22">2024-07-21</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/python/"><span class="card-category-list-name">python</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/react/"><span class="card-category-list-name">react</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/suibi/"><span class="card-category-list-name">suibi</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/vscode/"><span class="card-category-list-name">vscode</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/vue/"><span class="card-category-list-name">vue</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/websocket/"><span class="card-category-list-name">websocket</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/python%E7%94%9F%E6%88%90apk/" style="font-size: 1.1em; color: #999">python生成apk</a> <a href="/tags/vue%E7%BB%84%E4%BB%B6%E7%9A%84v-model/" style="font-size: 1.1em; color: #999">vue组件的v-model</a> <a href="/tags/vscode%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">vscode插件</a> <a href="/tags/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" style="font-size: 1.1em; color: #999">linux服务器之间上传文件</a> <a href="/tags/websocket%E8%81%8A%E5%A4%A9%E5%AE%A4/" style="font-size: 1.1em; color: #999">websocket聊天室</a> <a href="/tags/%E5%9F%BA%E4%BA%8Ereact-dnd%E5%AE%9E%E7%8E%B0%E6%8B%96%E6%8B%BD%E3%80%81%E6%8E%92%E5%BA%8F/" style="font-size: 1.1em; color: #999">基于react-dnd实现拖拽、排序</a> <a href="/tags/linux%E8%AE%BE%E7%BD%AE%E8%BD%AF%E9%93%BE%E6%8E%A5/" style="font-size: 1.1em; color: #999">linux设置软链接</a> <a href="/tags/%E8%B0%B7%E6%AD%8C%E6%97%A0%E8%B7%A8%E5%9F%9F%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">谷歌无跨域模式</a> <a href="/tags/react%E9%85%8D%E7%BD%AE%E8%A3%85%E9%A5%B0%E5%99%A8/" style="font-size: 1.1em; color: #999">react配置装饰器</a> <a href="/tags/websocket%E7%BE%A4%E8%81%8A/" style="font-size: 1.1em; color: #999">websocket群聊</a> <a href="/tags/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 1.1em; color: #999">linux设置定时任务</a> <a href="/tags/vscode%E4%BF%9D%E5%AD%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%AE%BE%E7%BD%AE/" style="font-size: 1.1em; color: #999">vscode保存格式化设置</a> <a href="/tags/%E9%9A%8F%E7%AC%94%E3%80%81%E5%B0%8F%E8%AF%B4/" style="font-size: 1.5em; color: #99a9bf">随笔、小说</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">16</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-21T13:16:54.236Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By savior</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
